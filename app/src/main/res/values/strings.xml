@@ -1,0 +1,10 @@
+<resources>
+    <!-- Label for the app name -->
+    <string name="app_name">InventoryOne</string>
+
+    <!-- Label for inserting dummy data -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for deleting all entries, which does nothing atm -->
+    <string name="action_delete_all_entries">Destroy All Products</string>
+</resources>
