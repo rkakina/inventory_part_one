@@ -1,8 +1,24 @@
 package com.example.android.inventoryone.data;
 
+import android.content.ContentResolver;
+import android.net.Uri;
 import android.provider.BaseColumns;
 
 public final class ProductContract {
+
+    /**
+     * Content Authority string for access purposes
+     */
+    public static final String CONTENT_AUTHORITY = "com.example.android.inventoryone";
+    /**
+     * Use CONTENT_AUTHORITY to create the base of all URI's which apps will use to contact
+     * the content provider.
+     */
+    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+    /**
+     * Product Provider
+     */
+    public static final String PATH_PRODUCT = "product";
 
     /**
      * Just here so that it can't be initialized by anything else
@@ -11,6 +27,23 @@ public final class ProductContract {
     }
 
     public static final class ProductEntry implements BaseColumns {
+
+        /**
+         * The content URI to access the pet data in the provider
+         */
+        public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_PRODUCT);
+
+        /**
+         * The MIME type of the {@link #CONTENT_URI} for a list of products.
+         */
+        public static final String CONTENT_LIST_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_PRODUCT;
+
+        /**
+         * The MIME type of the {@link #CONTENT_URI} for a single product.
+         */
+        public static final String CONTENT_ITEM_TYPE =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_PRODUCT;
 
         /**
          * Name of database table for products
